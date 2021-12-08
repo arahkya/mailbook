@@ -1,0 +1,9 @@
+POST http://localhost:18986/api/create
+Content-Type: "application/json"
+
+{
+  "date": "2021-12-08T18:48:00.00+07:00",
+  "title": "Package 0009",
+  "houseNo": "89/86",
+  "packageNo": "PKG0009"
+}
