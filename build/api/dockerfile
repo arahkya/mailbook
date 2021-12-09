@@ -1,0 +1,16 @@
+FROM golang:1.16-alpine as build
+
+WORKDIR /app
+
+COPY ./internal/api .
+COPY ./cmd/api .
+COPY go.mod .
+
+CMD ["go", "build", "-o ./bin"]
+
+FROM golang:1.16-alpine as runtime
+
+WORKDIR /app
+COPY --from=build /app/bin .
+
+CMD ["./main"]
