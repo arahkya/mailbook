@@ -6,7 +6,7 @@ COPY ./internal/api .
 COPY ./cmd/api .
 COPY go.mod .
 
-CMD ["go", "build", "-o ./bin/api"]
+RUN ["go", "build", "-o ./bin/api"]
 
 FROM golang:1.16-alpine as runtime
 
