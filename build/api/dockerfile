@@ -2,11 +2,11 @@ FROM golang:1.16-alpine as build
 
 WORKDIR /app
 
-COPY ./internal/api .
-COPY ./cmd/api .
+COPY ./internal/api ./internal/api
+COPY ./cmd/api ./cmd/api
 COPY go.mod .
 
-RUN ["go", "build", "-o", "./bin/api"]
+RUN ["go", "build", "./api/main.go", "-o", "./bin/api"]
 
 FROM golang:1.16-alpine as runtime
 
