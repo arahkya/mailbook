@@ -1,0 +1,33 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Build
+      working-directory: "./cmd/api"
+      run: go build -v ./main.go
+      
+    - name: Docker Build & Push Action  
+      uses: mr-smithers-excellent/docker-build-push@v5.6
+      with:        
+        image: arahk/mailbook-api
+        tags: latest
+        registry: "hub.docker.com"
+        dockerfile: "./build/api/dockerfile"        
+        username: ${{ secrets.DOCKERHUB_USERNAME }}        
+        password: ${{ secrets.DOCKERHUB_TOKEN }          
