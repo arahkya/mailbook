@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/arahkya/mailbook/handlers"
+	"github.com/arahkya/mailbook/internal/api/handlers"
 )
 
 func main() {

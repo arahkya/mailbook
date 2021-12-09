@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/arahkya/mailbook/models"
+	"github.com/arahkya/mailbook/internal/api/models"
 )
 
 type CreateHandler struct{}

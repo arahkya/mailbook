@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/arahkya/mailbook/models"
+	"github.com/arahkya/mailbook/internal/api/models"
 )
 
 type ListHandler struct{}
