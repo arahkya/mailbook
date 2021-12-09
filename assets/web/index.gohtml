@@ -2,14 +2,21 @@
 
 <head>
     <title>Index</title>
+    <link href="/assets/styles/global.css" rel="stylesheet" type="text/css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script src="/assets/scripts/index.js"></script>
 </head>
 
 <body>
-    <h1>Mailbook</h1>
-    <p>Hello World</p>
-    <image src="/assets/images/mailbook.jpg" alt="mailbook image" style="width:300px; display:block" />
+    <div id="header">
+        <span>Mailbook</span>
+    </div>   
+    
     <button onclick="onclick_btn()">Click me</button>
+
+    <table id="mail-list">
+    </table>
 </body>
 
 </html>
