@@ -2,13 +2,12 @@ package main
 
 import (
 	"net/http"
+
+	"github.com/arahkya/mailbook/internal/web/handlers"
 )
 
 func main() {
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Ok"))
-	})
+	http.Handle("/", handlers.IndexHandler{})
 
 	http.ListenAndServe(":28986", nil)
 }
