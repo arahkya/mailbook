@@ -13,4 +13,4 @@ FROM golang:1.16-alpine as runtime
 WORKDIR /app
 COPY --from=build /app/bin/api .
 
-CMD ["./main"]
+CMD ["./api"]

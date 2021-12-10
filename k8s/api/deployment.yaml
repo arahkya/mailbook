@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailbook-api-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailbook-api
+  template:
+    metadata:
+      labels:
+        app: mailbook-api
+    spec:
+      containers:
+        - name: mailbook-api
+          image: arahk/mailbook-api:latest
+          imagePullPolicy: "Always"
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+          - containerPort: 18986
