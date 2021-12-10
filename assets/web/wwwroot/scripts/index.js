@@ -1,7 +1,7 @@
 function onclick_btn() {
     axios({
             method: 'get',
-            url: "http://mailbook.in.th/api/list",
+            url: "http://api.mailbook.in.th/api/list",
             responseType: 'application/json'
         }).then(function(response) {
             var mailItems = response.data
