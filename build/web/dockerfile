@@ -12,5 +12,6 @@ FROM golang:1.16-alpine as runtime
 
 WORKDIR /app
 COPY --from=build /app/bin/web .
+COPY ./assets ./assets
 
 CMD ["./web"]

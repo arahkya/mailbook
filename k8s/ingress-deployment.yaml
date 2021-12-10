@@ -17,7 +17,7 @@ spec:
             name: mailbook-api-cluster-ip-svr
             port:
               number: 18986
-  - host: mailbook.in.th
+  - host: web.mailbook.in.th
     http:
       paths:
       - path: /(.*)
