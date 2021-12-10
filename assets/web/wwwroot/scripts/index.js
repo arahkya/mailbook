@@ -1,11 +1,13 @@
 function onclick_btn() {
+    var mailListTable = document.querySelector("#mail-list")
+    mailListTable.innerHTML = ""
+
     axios({
             method: 'get',
             url: "http://api.mailbook.in.th/api/list",
             responseType: 'application/json'
         }).then(function(response) {
             var mailItems = response.data
-            var mailListTable = document.querySelector("#mail-list")
 
             for (let i = 0; i < mailItems.length; i++) {
                 var newTr = document.createElement("tr")
