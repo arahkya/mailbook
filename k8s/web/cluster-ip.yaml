@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailbook-web-cluster-ip-svr
+spec:
+  selector:
+    app: mailbook-web
+  ports:
+  - port: 28986
+    targetPort: 28986

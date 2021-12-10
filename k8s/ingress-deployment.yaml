@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-  - host: mailbook.in.th
+  - host: api.mailbook.in.th
     http:
       paths:
       - path: /(.*)
@@ -17,3 +17,12 @@ spec:
             name: mailbook-api-cluster-ip-svr
             port:
               number: 18986
+  - host: mailbook.in.th
+    http:
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mailbook-web-cluster-ip-svr
+            port:
+              number: 28986

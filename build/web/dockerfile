@@ -1,0 +1,16 @@
+FROM golang:1.16-alpine as build
+
+WORKDIR /app
+
+COPY ./internal/web ./internal/web
+COPY ./cmd/web ./cmd/web
+COPY go.mod .
+
+RUN ["go", "build", "-o", "./bin/web", "./cmd/web/main.go"]
+
+FROM golang:1.16-alpine as runtime
+
+WORKDIR /app
+COPY --from=build /app/bin/web .
+
+CMD ["./web"]

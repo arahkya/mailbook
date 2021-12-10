@@ -11,16 +11,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17
+    # - name: Set up Go
+    #   uses: actions/setup-go@v2
+    #   with:
+    #     go-version: 1.17
 
-    - name: Build
-      working-directory: "./cmd/api"
-      run: go build -v ./main.go
+    # - name: Build 
+    #   working-directory: "./cmd/api"
+    #   run: go build -v ./main.go
       
     - name: Login to DockerHub
       uses: docker/login-action@v1
@@ -28,10 +28,18 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Docker Build & Push Action  
+    - name: Docker Build & Push Action Api
       uses: mr-smithers-excellent/docker-build-push@v5.6
       with:        
         image: mailbook-api
         tags: latest
         registry: "arahk"
         dockerfile: "./build/api/dockerfile"
+
+    - name: Docker Build & Push Action Web
+      uses: mr-smithers-excellent/docker-build-push@v5.6
+      with:        
+        image: mailbook-web
+        tags: latest
+        registry: "arahk"
+        dockerfile: "./build/web/dockerfile"
