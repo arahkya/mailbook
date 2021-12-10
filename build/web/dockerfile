@@ -11,7 +11,7 @@ RUN ["go", "build", "-o", "./bin/web", "./cmd/web/main.go"]
 FROM golang:1.16-alpine as runtime
 
 WORKDIR /app
-COPY --from=build /app/bin/web .
-COPY ./assets ./assets
+COPY --from=build /app/bin/web ./bin/web
+COPY ./assets/web /assets/web
 
-CMD ["./web"]
+CMD ["./bin/web"]
